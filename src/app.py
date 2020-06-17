@@ -20,7 +20,7 @@ class Links(db.Model):
     visits = db.relationship("Visits", backref="links")
 
     def __repr__(self):
-        return f'<Link to {self.link_url} identified as {self.link_id} that was registered on {self.link_regtime}>'
+        return f"<Link to {self.link_url} identified as {self.link_id} that was registered on {self.link_regtime}>"
 
 class Visits(db.Model):
     visit_id = db.Column(db.String, primary_key = True)
