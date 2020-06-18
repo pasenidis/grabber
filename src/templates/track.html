@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Track
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Tracking {{ link.link_id }}</h1>
+    {% for visit in link.visits %}
+    <div class="single-visit">
+        <h3>{{ visit }}</h3>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

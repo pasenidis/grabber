@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, redirect
+from flask import Flask, request, jsonify, redirect, render_template, render_template_string
 from flask_sqlalchemy import SQLAlchemy
 from simpleflake import simpleflake
 from datetime import datetime
@@ -49,6 +49,12 @@ def links(link_id):
     except:
         traceback.print_exc()
         return "ip append ooops.."
+
+@app.route('/track/<string:link_id>', methods = ['GET'])
+def track(link_id):
+    item = Links.query.get(link_id)
+    
+    return render_template("track.html", link=item)
 
 @app.route('/reg', methods = ['POST'])
 def register():
