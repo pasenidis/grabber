@@ -7,9 +7,10 @@ Track
 {% block body %}
 <div class="container">
     <h1>Tracking {{ link.link_id }}</h1>
-    {% for visit in link.visits %}
+    <h2>{{ link }}</h2>
+    {% for i in link.visits %}
     <div class="single-visit">
-        <h3>{{ visit }}</h3>
+        <h3>{{ i }}</h3>
     </div>
     {% endfor %}
 </div>

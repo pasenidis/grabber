@@ -20,7 +20,7 @@ class Links(db.Model):
     visits = db.relationship("Visits", backref="links")
 
     def __repr__(self):
-        return f"<Link to {self.link_url} identified as {self.link_id} that was registered on {self.link_regtime}>"
+        return f"<Link to {self.link_url} identified as {self.link_id} that was registered on {self.link_regtime} with {self.visits}>"
 
 class Visits(db.Model):
     visit_id = db.Column(db.String, primary_key = True)
@@ -54,7 +54,7 @@ def links(link_id):
 def track(link_id):
     item = Links.query.get(link_id)
     
-    return render_template("track.html", link=item)
+    return render_template("track.html", link = item)
 
 @app.route('/reg', methods = ['POST'])
 def register():
